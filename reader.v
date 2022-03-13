@@ -28,7 +28,7 @@ pub fn (mut r Reader) read(mut buf []byte) ?int {
 	if r.i >= i64(r.s.len) {
 		return none
 	}
-	n := copy(buf, r.s[r.i..])
+	n := copy(mut buf, r.s[r.i..])
 	r.i += n
 	return n
 }
