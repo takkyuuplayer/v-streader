@@ -7,5 +7,5 @@ import io
 fn main() {
 	mut reader := streader.new('hello world')
 	mut out := os.stdout()
-	io.cp(reader, mut out) ?
+	io.cp(reader, mut out)?
 }
