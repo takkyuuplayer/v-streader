@@ -28,7 +28,7 @@ pub fn (mut r Reader) size() int {
 // read implements the io.Reader interface.
 pub fn (mut r Reader) read(mut buf []u8) !int {
 	if r.i >= i64(r.s.len) {
-    return IError(io.Eof{})
+		return IError(io.Eof{})
 	}
 	n := copy(mut buf, r.s[r.i..])
 	r.i += n
