@@ -1,5 +1,7 @@
 module streader
 
+import io
+
 // A Reader implements the io.Reader
 struct Reader {
 	s []u8
@@ -24,9 +26,9 @@ pub fn (mut r Reader) size() int {
 }
 
 // read implements the io.Reader interface.
-pub fn (mut r Reader) read(mut buf []u8) ?int {
+pub fn (mut r Reader) read(mut buf []u8) !int {
 	if r.i >= i64(r.s.len) {
-		return none
+    return IError(io.Eof{})
 	}
 	n := copy(mut buf, r.s[r.i..])
 	r.i += n
