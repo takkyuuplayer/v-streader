@@ -2,12 +2,12 @@ module streader
 
 // A Reader implements the io.Reader
 struct Reader {
-	s []byte
+	s []u8
 mut:
 	i i64
 }
 
-// len returns the number of bytes of the unread portion of the
+// len returns the number of u8s of the unread portion of the
 // string.
 pub fn (mut r Reader) len() int {
 	if r.i >= i64(r.s.len) {
@@ -24,7 +24,7 @@ pub fn (mut r Reader) size() int {
 }
 
 // read implements the io.Reader interface.
-pub fn (mut r Reader) read(mut buf []byte) ?int {
+pub fn (mut r Reader) read(mut buf []u8) ?int {
 	if r.i >= i64(r.s.len) {
 		return none
 	}

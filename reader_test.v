@@ -2,7 +2,7 @@ module streader
 
 fn test_read() ? {
 	mut reader := new('abcde')
-	mut bw := []byte{len: 3}
+	mut bw := []u8{len: 3}
 
 	n0 := reader.read(mut bw) ?
 	assert n0 == 3
@@ -19,7 +19,7 @@ fn test_read() ? {
 
 fn test_len() ? {
 	mut reader := new('abcde')
-	mut bw := []byte{len: 3}
+	mut bw := []u8{len: 3}
 
 	assert reader.len() == 5
 
@@ -32,7 +32,7 @@ fn test_len() ? {
 
 fn test_size() ? {
 	mut reader := new('abcde')
-	mut bw := []byte{len: 3}
+	mut bw := []u8{len: 3}
 
 	assert reader.size() == 5
 
